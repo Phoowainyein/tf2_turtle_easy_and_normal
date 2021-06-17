@@ -1,0 +1,28 @@
+<launch>
+    <node pkg="turtlesim" type="turtlesim_node" name="sim"/>
+    <node pkg="turtlesim" type="turtle_teleop_key" name="teleop" output="screen"/>
+
+    <node name="turtle1_tf2_broadcaster" pkg="tf2_exercise" type="turtle_tf2_broadcaster.py">
+        <param name="turtle" type="string" value="turtle1"/>
+    </node>
+
+    <node name="turtle2_tf2_broadcaster" pkg="tf2_exercise" type="turtle_tf2_broadcaster.py">
+        <param name="turtle" type="string" value="turtle2"/>
+    </node>
+
+
+    <!-- <node name="turtle1_tf2_broadcaster1" pkg="tf2_exercise" type="turtle_tf2_broadcaster.py">
+        <param name="turtle" type="string" value="turtle1"/>
+    </node>
+
+      <node name="turtle2_tf2_broadcaster1" pkg="tf2_exercise" type="turtle_tf2_broadcaster.py">
+        <param name="turtle" type="string" value="turtle3"/>
+    </node> -->
+
+
+    <node name="listener" pkg="tf2_exercise" type="turtle_tf2_listener.py" output="screen"/>
+    <!-- <node name="listener2" pkg="tf2_exercise" type="turtle3.py" output="screen"/> -->
+    <node pkg="tf2_hw" type="tf2_pub.py" name="publisher_pose_stamped">
+    </node>
+</launch>
+
